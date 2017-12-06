@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {!! Charts::assets() !!}
 
     <!-- Scripts -->
     <script>
@@ -56,6 +57,12 @@
                         <li><a href="{{ route('surat_aktif_kuliah.create') }}">Buat Surat Aktif Kuliah</a></li>
                         <li><a href="{{ route('surat_tidak_menerima_beasiswa.create') }}">Buat Surat Tidak Menerima Beasiswa</a></li>
                         <li><a href="{{ route('surat_rekomendasi_beasiswa.create') }}">Buat Surat Rekomendasi Beasiswa</a></li>
+                        <li><a href="{{ route('surat_aktif_kuliah.index') }}">Status surat aktif kuliah</a></li>
+                        <li><a href="{{ route('surat_tidak_menerima_beasiswa.index') }}">Status surat tidak menerima beasiswa</a></li>
+                        <li><a href="{{ route('surat_aktif_kuliah.chart') }}">Grafik Surat aktif kuliah</a></li>
+                        <li><a href="{{ route('surat_tidak_menerima_beasiswa.chart') }}">Grafik Surat Tidak Menerima Beas</a></li>
+
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>

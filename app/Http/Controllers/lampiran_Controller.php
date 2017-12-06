@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 class lampiran_Controller extends Controller
 {
   public function create(){
+    $id=surat_rekomendasi_beasiswa::get();
+    dd($id);
     return view('lampiran.create');
   }
 

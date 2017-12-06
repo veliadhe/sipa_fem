@@ -2,11 +2,11 @@
 
 @section('content')
   <div class="container">
-    <form class="" action="{{ route('surat_rekomendasi_beasiswa.beasiswa', $surat_rekomendasi_beasiswa) }}" method="post" enctype="multipart/form-data">
+    <form class="" action="{{ route('surat_rekomendasi_beasiswa.beasiswa', 'id_surat_rekomendasi')}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
       <div class="form-group">
         <label for="">Nama Beasiswa</label>
-        <input type="text" class="form-control" name="nama_beasiswa" placeholder="beasiswa yang diterima saat ini" value="{{ old('nama_beasiswa') }}">
+        <input type="text" class="form-control" name="nama_beasiswa" placeholder="beasiswa yang diterima saat ini" value="{{ old('semester') }}">
       </div>
       <div class="form-group">
         <label for="">Periode</label>
@@ -21,7 +21,7 @@
         <textarea name="status" rows="2" class="form-control" placeholder="status beasiswa" value="{{ old('status') }}"></textarea>
       </div>
       <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Selanjutnya">
+        <input type="submit" class="btn btn-primary" value="Kirim">
       </div>
     </form>
   </div>

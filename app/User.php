@@ -26,4 +26,8 @@ class User extends Authenticatable
      protected $hidden = [
          'password', 'remember_token', 'id_status=0'
      ];
+
+     public function surat_aktif_kuliah(){
+       return $this -> hasMany(surat_aktif_kuliah::class);
+     }
 }

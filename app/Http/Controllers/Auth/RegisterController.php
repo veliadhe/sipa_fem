@@ -45,6 +45,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
      protected function validator(array $data)
        {
            return Validator::make($data, [
@@ -67,9 +68,10 @@ class RegisterController extends Controller
         * @param  array  $data
         * @return \App\User
         */
+       public function administrator()
        protected function create(array $data)
        {
-           return User::create([
+           User::create([
                'name' => $data['name'],
                'email' => $data['email'],
                'username' => $data['username'],
@@ -81,5 +83,23 @@ class RegisterController extends Controller
                'no_hp' => $data['no_hp'],
                'password' => bcrypt($data['password']),
            ]);
+           return redirect('/tambah-administrator');
+       }
+       public function mahasiswa()
+       {
+          $password = request('password');
+          User::create([
+               'name' => $data['name'],
+               'email' => $data['email'],
+               'username' => $data['username'],
+               'nrp' => $data['nrp'],
+               'tempat_lahir' => $data['tempat_lahir'],
+               'tanggal_lahir' => $data['tanggal_lahir'],
+               'departemen' => $data['departemen'],
+               'alamat' => $data['alamat'],
+               'no_hp' => $data['no_hp'],
+               'password' => bcrypt($data['$password']),
+           ]);
+           return redirect('/tambah-mahasiswa');
        }
 }
