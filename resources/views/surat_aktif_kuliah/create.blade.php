@@ -1,51 +1,69 @@
-@extends('layouts.app')
+@extends('layouts.tampilan')
 
 @section('content')
-  <div class="container">
-    <form class="" action="{{ route('surat_aktif_kuliah.store') }}" method="post" enctype="multipart/form-data">
-      {{ csrf_field() }}
-      <div class="form-group has-feedback{{ $errors -> has('semester') ? ' has-error' : '' }}">
-        <label for="">Semester</label>
-        <input type="text" class="form-control" name="semester" placeholder="Semester saat ini" value="{{ old('semester') }}">
-        @if ($errors->has('semester'))
-          <span class="help-block">
-            <p>{{$errors->first('semester')}}</p>
-          </span>
-        @endif
-      </div>
-      <div class="form-group has-feedback{{ $errors -> has('kebutuhan') ? 'has-error' : '' }}">
-        <label for="">Kebutuhan</label>
-        <textarea name="kebutuhan" rows="2" class="form-control" placeholder="Surat aktif digunakan untuk apa" value="{{ old('kebutuhan') }}"></textarea>
-        @if ($errors->has('kebutuhan'))
-          <span class="help-block">
-            <p>{{$errors->first('kebutuhan')}}</p>
-          </span>
-        @endif
-      </div>
+<!-- page content -->
+        <div class="col-md-12 col-sm-12 col-xs-12" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Form Surat Aktif Kuliah</h3>
+              </div>
+            </div>
+            <div class="clearfix"></div>
 
-      <div class="form-group has-feedback{{ $errors -> has('fcktm') ? 'has-error' : '' }}">
-        <label for="">Fotokopi KTM</label>
-        <input type="file" name="fcktm" value="{{ old('fcktm') }}">
-        @if ($errors->has('fcktm'))
-          <span class="help-block">
-            <p>{{$errors->first('fcktm')}}</p>
-          </span>
-        @endif
-      </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Lengkapi data dibawah ini</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
 
-      <div class="form-group has-feedback{{ $errors -> has('fcspp') ? 'has-error' : '' }}">
-        <label for="">Fotokopi SPP Terakhir</label>
-        <input type="file" name="fcspp" value="{{ old('fcspp') }}">
-        @if ($errors->has('fcspp'))
-          <span class="help-block">
-            <p>{{$errors->first('fcspp')}}</p>
-          </span>
-        @endif
-      </div>
+                    <form class="form-horizontal form-label-left" action="{{ route('surat_aktif_kuliah.store') }}" method="post" enctype="multipart/form-data" novalidate>
+                      <div class="item form-group">
+                        {{ csrf_field() }}
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="semester">Semester <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" value="{{ old('semester') }}" name="semester" placeholder="Semester saat ini" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="kebutuhan">Kebutuhan <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea id="kebutuhan" required="required" name="kebutuhan"  value="{{ old('kebutuhan') }}" placeholder="Kebutuhan dibuatnya surat ini" class="form-control col-md-7 col-xs-12"></textarea>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fcktm">Fotokopi KTM <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="file" id="fcktm" name="fcktm" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fcktm">Fotokopi SPP <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="file" id="fcktm" name="fcspp" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button id="send" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
 
-      <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Buat">
-      </div>
-    </form>
-  </div>
 @endsection

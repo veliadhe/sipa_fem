@@ -27,7 +27,7 @@ class surat_tidak_menerima_beasiswa_Controller extends Controller
         'id_user' => auth()->id()
       ]);
 
-      return redirect()->route('home')->withInfo('surat telah dikirim');
+      return redirect()->route('surat_tidak_menerima_beasiswa.create')->withInfo('surat telah dikirim');
     }
 
     public function chart(){

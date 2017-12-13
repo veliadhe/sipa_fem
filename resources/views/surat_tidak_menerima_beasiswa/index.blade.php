@@ -1,25 +1,43 @@
-@extends('layouts.app')
+@extends('layouts.tampilan')
 
 @section('content')
-  <div class="container">
-      <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            @foreach ($surat_tidak_menerima_beasiswas as $surat_tidak_menerima_beasiswa)
-            <div class="panel panel-default">
-                <div class="panel-heading">Surat Tidak Menerima Beasiswa</div>
-
-                <div class="panel-body">
-                    <p> tanggal dibuat </p>
-                    <p>{{ $surat_tidak_menerima_beasiswa -> created_at}}</p>
-                </div>
-                <div class="panel-body">
-                    <p> tanggal surat jadi </p>
-                    <p>{{ $surat_tidak_menerima_beasiswa -> tanggal_jadi}}</p>
-                </div>
-
+<!-- page content -->
+        <div class="col-md-12 col-sm-12 col-xs-12" role="main" style="min-height: 4144px;">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Status Surat Tidak Menerima Beasiswa</h3>
+              </div>
             </div>
-            @endforeach
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Tanggal Masuk</th>
+                          <th>Tanggal Jadi</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ($surat_tidak_menerima_beasiswas as $surat_tidak_menerima_beasiswa)
+                        <tr>
+                          <td>{{ $surat_tidak_menerima_beasiswa -> created_at -> diffForHumans()}}</td>
+                          <td>{{ $surat_tidak_menerima_beasiswa -> tanggal_jadi}}</td>
+                          <td>Edinburgh</td>
+                        </tr>
+                      @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-      </div>
-  </div>
+        </div>
+        <!-- /page content -->
+
 @endsection

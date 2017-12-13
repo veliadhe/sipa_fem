@@ -24,10 +24,21 @@ class User extends Authenticatable
       * @var array
       */
      protected $hidden = [
-         'password', 'remember_token', 'id_status=0'
+         'password', 'remember_token', 'roles_id'
      ];
+
+     public function role(){
+       return $this->belongsTo(Role::class, 'roles_id');
+     }
 
      public function surat_aktif_kuliah(){
        return $this -> hasMany(surat_aktif_kuliah::class);
+     }
+
+     public function punyaRule($namaRule){
+       if($this->role->namaRule == $namaRule){
+         return true;
+       }
+       return false;
      }
 }

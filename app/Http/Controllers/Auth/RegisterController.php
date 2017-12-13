@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -68,10 +69,9 @@ class RegisterController extends Controller
         * @param  array  $data
         * @return \App\User
         */
-       public function administrator()
-       protected function create(array $data)
+       public function create(array $data)
        {
-           User::create([
+           return User::create([
                'name' => $data['name'],
                'email' => $data['email'],
                'username' => $data['username'],
@@ -83,23 +83,5 @@ class RegisterController extends Controller
                'no_hp' => $data['no_hp'],
                'password' => bcrypt($data['password']),
            ]);
-           return redirect('/tambah-administrator');
-       }
-       public function mahasiswa()
-       {
-          $password = request('password');
-          User::create([
-               'name' => $data['name'],
-               'email' => $data['email'],
-               'username' => $data['username'],
-               'nrp' => $data['nrp'],
-               'tempat_lahir' => $data['tempat_lahir'],
-               'tanggal_lahir' => $data['tanggal_lahir'],
-               'departemen' => $data['departemen'],
-               'alamat' => $data['alamat'],
-               'no_hp' => $data['no_hp'],
-               'password' => bcrypt($data['$password']),
-           ]);
-           return redirect('/tambah-mahasiswa');
        }
 }

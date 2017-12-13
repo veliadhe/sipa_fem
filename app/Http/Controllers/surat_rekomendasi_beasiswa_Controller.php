@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 use App\surat_rekomendasi_beasiswa;
 
 use Illuminate\Http\Request;
+use Charts;
 
 class surat_rekomendasi_beasiswa_Controller extends Controller
 {
+  public function index(){
+    $id_user = auth()->id();
+    $surat_rekomendasi_beasiswas = surat_rekomendasi_beasiswa::where('id_user', $id_user)->get();
+    return view('surat_rekomendasi_beasiswa.index', compact('surat_rekomendasi_beasiswas'));
+  }
 
   public function create(){
     return view('surat_rekomendasi_beasiswa.create');
@@ -15,7 +21,7 @@ class surat_rekomendasi_beasiswa_Controller extends Controller
     public function store(){
       $this->validate(request(),[
         'semester' => 'required|integer|max:10',
-        'ipk' => 'required|number',
+        'ipk' => 'required',
         'sks' => 'required',
         'fcktm' => 'required|image',
         'fcspp' => 'required|image',
@@ -34,7 +40,7 @@ class surat_rekomendasi_beasiswa_Controller extends Controller
       'surat_pernyataan_sedang_tidak_menerima_beasiswa' => request('surat_pernyataan_sedang_tidak_menerima_beasiswa') ->  store('surat_pernyataan_sedang_tidak_menerima_beasiswa'),
       'id_user' => auth()->id()
     ]);
-  return redirect()->route('home')->withInfo('surat telah dikirim');
+  return redirect()->route('surat_rekomendasi_beasiswa.create')->withInfo('surat telah dikirim');
   }
 
   public function beasiswa($id){
@@ -44,7 +50,7 @@ class surat_rekomendasi_beasiswa_Controller extends Controller
   }
 
   public function chart(){
-    $chart = Charts::database(surat_rekomendasi_beasiswa::all(), 'bar', 'highcharts')
+    $chart = Charts::database(surat_rekomendasi_beasiswa::all(), 'line', 'highcharts')
       ->title('Surat rekomendasi beasiswa')
       ->responsive(true)
       ->groupByMonth()

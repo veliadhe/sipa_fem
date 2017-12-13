@@ -1,69 +1,77 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+<title>SIPA FEM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Account Login Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href="{{ asset ('assets/login/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+<script src="{{ asset ('assets/login/js/jquery-1.11.1.min.js') }}"></script>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+<script src="{{ asset ('assets/login/js/Chart.js') }}"></script>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail/Username</label>
+<script src="{{ asset ('assets/login/js/easyResponsiveTabs.js') }}" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion
+				width: 'auto', //auto or any width like 600px
+				fit: true   // 100% fit in a container
+			});
+		});
+	   </script>
+</head>
+<body>
+<div class="content">
+	<h1>Selamat Datang</h1>
+		<div class="main">
+			<div class="profile-left wthree">
+				<div class="sap_tabs">
+				<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+					<ul class="resp-tabs-list">
+						<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Login</span></li>
+						<div class="clear"> </div>
+					</ul>
+					<div class="resp-tabs-container">
+						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+							<div class="login-top">
+								<form class="form-horizontal" method="POST" action="{{ route('login') }}">
+									{{ csrf_field() }}
 
-                            <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+									<label for="email"></label>
+										<input type="text" class="email" name="email" placeholder="Email/Username" required autofocus/>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+									<label for="password"></label>
+										<input type="password" class="password" name="password" placeholder="Password" required/>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+									<input type="checkbox" id="brand" value="">
+									<label for="brand"><span></span> Remember me?</label>
+								<div class="login-bottom">
+									<ul>
+										<li>
+											<input href="{{ route('login')}}" type="submit" value="LOGIN"/>
+										</li>
+										<li>
+											<a href="{{ route('password.request') }}">Forgot password?</a>
+										</li>
+									<ul>
+									<div class="clear"></div>
+								</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<div class="clear"> </div>
+	</div><br/>
+	<p class="footer">2017 &copy; Tim 10 Sistem Informasi</p>
 </div>
-@endsection
+</body>
+</html>
