@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>SIPA FEM</title>
+  <link rel="icon" type="image/png" href="{{ asset('assets/dist/img/ipb-fem.png') }}">
+  <title>SIPA FEM</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

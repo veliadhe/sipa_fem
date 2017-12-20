@@ -10,7 +10,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Status Surat Aktif Kuliah</h3>
+                <h3>Status Surat Tidak Menerima Beasiswa</h3>
               </div>
             </div>
 
@@ -21,19 +21,32 @@
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
+                          <th>No </th>
                           <th>Nama </th>
                           <th>Tanggal Masuk</th>
-                          <th>Tanggal Jadi</th>
                           <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <p hidden>{{ $no=1}} </p>
                         @foreach ($result as $surat_tidak_menerima_beasiswa)
                         <tr>
-                          <td>{{ $surat_tidak_menerima_beasiswa -> name}}</td>
+                          <td>{{ $no++}} </td>
+                          <td><a href="{{ route('surat_tidak_menerima_beasiswa.userProfil', $surat_tidak_menerima_beasiswa->id_surat_tidak_menerima_beasiswa) }}">{{ $surat_tidak_menerima_beasiswa -> name}}</td>
                           <td>{{ $surat_tidak_menerima_beasiswa -> created_at}}</td>
-                          <td>{{ $surat_tidak_menerima_beasiswa -> tanggal_jadi}}</td>
-                          <td>Edinburgh</td>
+                          <td>
+                            <form action="{{ route('surat_tidak_menerima_beasiswacreateAdmin.update', $surat_tidak_menerima_beasiswa->id_surat_tidak_menerima_beasiswa) }}" method="post" novalidate>
+                                {{ csrf_field() }}
+                                {{ method_field('PATCH') }}
+                                <input name="status" type="hidden" value="1">
+                                <input name="email" type="hidden" value="{{ $surat_tidak_menerima_beasiswa->email}}">
+                                <input name="subjek" type="hidden" value="Surat Tidak Menerima Beasiswa Telah Selesai di Proses">
+                                <input name="message" type="hidden" value="Surat Tidak Menerima Beasiswa anda telah selesai diproses. Silahkan datang ke TU FEM untuk mengambil surat anda">
+
+                                  <button id="send" type="submit" class="btn btn-success">Selesai</button>
+                            </form>
+
+                          </td>
                         </tr>
                       @endforeach
                       </tbody>

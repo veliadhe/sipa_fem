@@ -20,20 +20,17 @@
                           <th>No. </th>
                           <th>Nama </th>
                           <th>Tanggal Masuk</th>
-                          <th>Tanggal Jadi</th>
                           <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <p hidden> {{ $no=1}}</p>
                         @foreach ($result as $surat_aktif_kuliah)
                         <tr>
-                          <td>#</td>
+                          <td>{{ $no++}}</td>
                           <td>{{ $surat_aktif_kuliah -> name }}</td>
                           <td>{{ $surat_aktif_kuliah -> created_at}}</td>
-                          <td>{{ $surat_aktif_kuliah -> tanggal_jadi}}</td>
-                          <td>
-                              <a class="btn btn-danger" href="#"> Selesai <a>
-                          </td>
+                          <td>Selesai</td>
                         </tr>
                       @endforeach
                       </tbody>

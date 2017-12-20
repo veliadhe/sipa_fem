@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SIPA FEM | </title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/dist/img/ipb-fem.png') }}">
+    <title>SIPA FEM</title>
 
     <!-- Bootstrap -->
     <link href="{{ url('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -48,7 +49,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>SIPA FEM</span></a>
+              <a href="beranda" class="site_title"><i class="fa fa-graduation-cap"></i> <span>SIPA FEM</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -86,7 +87,7 @@
                       <li><a href="{{ route('surat_aktif_kuliah.index') }}">Surat Aktif Kuliah</a></li>
                       <li><a href="{{ route('surat_tidak_menerima_beasiswa.index') }}">Surat Tidak Menerima Beasiswa</a></li>
                       <li><a href="{{ route('surat_rekomendasi_beasiswa.index') }}">Surat Rekomendasi Beasiswa</a></li>
-                      <li><a href="icons.html">Surat Offline</a></li>
+                      <!-- <li><a href="icons.html">Surat Offline</a></li> -->
                     </ul>
                   </li>
                   </div>
@@ -95,7 +96,7 @@
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
+            <!-- <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
@@ -108,7 +109,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
-            </div>
+            </div> -->
             <!-- /menu footer buttons -->
           </div>
         </div>
@@ -147,7 +148,7 @@
                   </ul>
                 </li>
 
-                <li role="presentation" class="dropdown">
+                <!-- <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-bell"></i>
                     <span class="badge bg-green">6</span>
@@ -210,7 +211,7 @@
                       </div>
                     </li>
                   </ul>
-                </li>
+                </li> -->
               </ul>
             </nav>
           </div>
@@ -228,7 +229,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            SIPA FEM TEAM | Template by Bootstrap
           </div>
           <div class="clearfix"></div>
         </footer>

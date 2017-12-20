@@ -15,11 +15,18 @@ class hakAksesMiddleware
      */
     public function handle($request, Closure $next, $namaRule)
     {
-      if(auth()->check() && !auth()->user()->punyaRule('mahasiswa')){
-        return redirect('dashboardAdmin');
+      // if(auth()->check() && !auth()->user()->punyaRule('mahasiswa')){
+      //   return redirect('dashboardAdmin');
+      // }
+      //   else {
+      //   return redirect('beranda');
+      //   }
+
+      if(! $request->user()->punyaRule($namaRule))
+      {
+        return redirect()
+          ->to('dashboardAdmin');
       }
-        else {
-        return redirect('beranda');
-        }
+      return $next($request);
     }
 }

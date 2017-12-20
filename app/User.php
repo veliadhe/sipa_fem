@@ -34,6 +34,10 @@ class User extends Authenticatable
      public function surat_aktif_kuliah(){
        return $this -> hasMany(surat_aktif_kuliah::class);
      }
+     public function routeNotificationForMail()
+   {
+       return $this->email_address;
+   }
 
      public function punyaRule($namaRule){
        if($this->role->namaRule == $namaRule){

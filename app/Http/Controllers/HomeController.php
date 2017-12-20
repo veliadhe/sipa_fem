@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\surat_aktif_kuliah;
+use App\User;
+use App\surat_tidak_menerima_beasiswa;
+use App\surat_rekomendasi_beasiswa;
+use Charts;
+
 
 use Illuminate\Http\Request;
 
@@ -11,16 +17,17 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('rule:mahasiswa')->except('cobalagi');
-    }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+         // $this->middleware('auth');
+         $this->middleware('rule:mahasiswa')->except('cobalagi');
+     }
     public function index()
     {
       $id_user = auth()->id();

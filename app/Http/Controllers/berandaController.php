@@ -31,6 +31,7 @@ class berandaController extends Controller
   {
     $id_user = auth()->id();
     $chart = Charts::multiDatabase('line','material')
+            ->title(' ')
             ->dataset('Surat Aktif Kuliah', surat_aktif_kuliah::where('id_user', $id_user)->get())
             ->dataset('Surat Rekomendasi Beasiswa', surat_rekomendasi_beasiswa::where('id_user', $id_user)->get())
             ->dataset('Surat Tidak Menerima Beasiswa', surat_tidak_menerima_beasiswa::where('id_user', $id_user)->get())
@@ -38,8 +39,16 @@ class berandaController extends Controller
 
       return view('beranda', ['chart' => $chart]);
   }
+
   public function dashboardAdmin()
 {
-    return view('dashboardAdmin');
+  $chart = Charts::multiDatabase('line','material')
+          ->title(' ')
+          ->dataset('User', user::all())
+          ->dataset('Surat Aktif Kuliah', surat_aktif_kuliah::all())
+          ->dataset('Surat Rekomendasi Beasiswa', surat_rekomendasi_beasiswa::all())
+          ->dataset('Surat Tidak Menerima Beasiswa', surat_tidak_menerima_beasiswa::all())
+          ->groupByMonth(2017, true);
+    return view('dashboardAdmin', ['chart' => $chart]);
 }
 }

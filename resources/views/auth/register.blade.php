@@ -42,37 +42,37 @@
 								<form action="{{ route('register') }}" method="POST">
 									{{ csrf_field() }}
 									<label for="name"></label>
-										<input type="text" class="form-control" placeholder="Name" required/>
+										<input type="text" class="form-control" name="name" placeholder="Name" required/>
 
 									<label for="email"></label>
-										<input type="text" class="form-control" placeholder="Email" required/>
+										<input type="text" class="form-control" name="email" placeholder="Email" required/>
 
 									<label for="username"></label>
-										<input type="text" class="form-control" placeholder="Username" required=""/>
+										<input type="text" class="form-control" name="username" placeholder="Username" required=""/>
 
 									<label for="nrp"></label>
-										<input type="text" class="form-control" placeholder="NIM" required=""/>
+										<input type="text" class="form-control" name="nrp" placeholder="NIM" required=""/>
 
 									<label for="tempat_lahir"></label>
-										<input type="text" class="form-control" placeholder="Tempat Lahir" required=""/>
+										<input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" required=""/>
 
 									<label for="tanggal_lahir"></label>
-										<input type="text" class="form-control" placeholder="Tanggal Lahir" required=""/>
+										<input type="text" class="form-control" name="tanggal_lahir" placeholder="Tanggal Lahir" required=""/>
 
 									<label for="departemen"></label>
-										<input type="text" class="form-control" placeholder="Departemen" required=""/>
+										<input type="text" class="form-control" name="departemen" placeholder="Departemen" required=""/>
 
 									<label for="alamat"></label>
-										<input type="text" class="form-control" placeholder="Alamat" required=""/>
+										<input type="text" class="form-control" name="alamat" placeholder="Alamat" required=""/>
 
 									<label for="no_hp"></label>
-										<input type="text" class="form-control" placeholder="Nomor HP" required=""/>
+										<input type="text" class="form-control" name="no_hp" placeholder="Nomor HP" required=""/>
 
 									<label for="password"></label>
-										<input type="password" class="password" placeholder="Password" required=""/>
+										<input type="password" class="password" name="password" placeholder="Password" required=""/>
 
 									<label for="password_confirmation"></label>
-										<input type="password" class="password" placeholder="Confirm Password" required=""/>
+										<input type="password" class="password"  name="password_confirmation" placeholder="Confirm Password" required=""/>
 									<input type="checkbox" id="brand1" value="">
 									<label for="brand1"><span></span> Remember me?</label>
 									<input type="submit" value="SIGN UP"/>

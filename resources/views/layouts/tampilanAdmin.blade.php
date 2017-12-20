@@ -33,8 +33,20 @@
     <link href="{{ url('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url('vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
 
+    <!-- bootstrap-daterangepicker -->
+   <link href="{{ url('vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+   <!-- bootstrap-datetimepicker -->
+   <link href="{{ url('vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
+   <!-- Ion.RangeSlider -->
+   <link href="{{ url('vendors/normalize-css/normalize.css') }}" rel="stylesheet">
+   <link href="{{ url('vendors/ion.rangeSlider/css/ion.rangeSlider.css') }}" rel="stylesheet">
+   <link href="{{ url('vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}" rel="stylesheet">
+   <!-- Bootstrap Colorpicker -->
+   <link href="{{ url('vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link href="{{ url('build/css/custom.min.css') }}" rel="stylesheet">
+    {!! Charts::assets() !!}
   </head>
 
   <!-- Authentication Links -->
@@ -48,7 +60,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>SIPA FEM</span></a>
+              <a href="dashboardAdmin" class="site_title"><i class="fa fa-graduation-cap"></i> <span>SIPA FEM</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -77,17 +89,21 @@
                   <li><a><i class="fa fa-edit"></i> Surat Masuk <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('surat_aktif_kuliah.createAdmin')}}">Surat Aktif Kuliah</a></li>
-                      <li><a href="#">Surat Tidak Menerima Beasiswa</a></li>
-                      <li><a href="#">Surat Rekomendasi Beasiswa</a></li>
+                      <li><a href="{{ route('surat_tidak_menerima_beasiswa.createAdmin')}}">Surat Tidak Menerima Beasiswa</a></li>
+                      <li><a href="{{ route('surat_rekomendasi_beasiswa.createAdmin')}}">Surat Rekomendasi Beasiswa</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Surat Keluar <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-folder"></i> Surat Keluar <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('surat_aktif_kuliah.indexAdmin')}}">Surat Aktif Kuliah</a></li>
-                      <li><a href="#">Surat Tidak Menerima Beasiswa</a></li>
-                      <li><a href="#">Surat Rekomendasi Beasiswa</a></li>
-                      <li><a href="icons.html">Surat Offline</a></li>
+                      <li><a href="{{ route('surat_tidak_menerima_beasiswa.indexAdmin')}}">Surat Tidak Menerima Beasiswa</a></li>
+                      <li><a href="{{ route('surat_rekomendasi_beasiswa.indexAdmin')}}">Surat Rekomendasi Beasiswa</a></li>
+                      <!-- <li><a href="icons.html">Surat Offline</a></li> -->
                     </ul>
+                  </li>
+                  <li><a href="{{ route('dokumen.lihatDokumen') }}"><i class="fa fa-external-link"></i> Arsip Rekomen Beasiswa <span class="label label-success pull-right"></span></a>
+                  </li>
+                  <li><a href="{{ route('user.daftarMahasiswa') }}"><i class="fa fa-male"></i>Mahasiswa <span class="label label-success pull-right"></span></a>
                   </li>
                   </div>
 
@@ -95,7 +111,7 @@
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
+            <!-- <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
@@ -108,7 +124,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
-            </div>
+            </div> -->
             <!-- /menu footer buttons -->
           </div>
         </div>
@@ -146,7 +162,7 @@
                     </li>
                   </ul>
                 </li>
-
+<!--
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-bell"></i>
@@ -210,7 +226,7 @@
                       </div>
                     </li>
                   </ul>
-                </li>
+                </li> -->
               </ul>
             </nav>
           </div>
@@ -228,7 +244,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            SIPA FEM TEAM | Template by Bootstrap
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -290,8 +306,57 @@
        <script src="{{ url('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
        <script src="{{ url('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
 
+  <!-- bootstrap-daterangepicker -->
+   <script src="{{ url('vendors/moment/min/moment.min.js') }}"></script>
+   <script src="{{ url('vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+   <!-- bootstrap-datetimepicker -->
+   <script src="{{ url('vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
+   <!-- Ion.RangeSlider -->
+   <script src="{{ url('vendors/ion.rangeSlider/js/ion.rangeSlider.min.js') }}"></script>
+   <!-- Bootstrap Colorpicker -->
+   <script src="{{ url('vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
+   <!-- jquery.inputmask -->
+   <script src="{{ url('vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js') }}"></script>
+   <!-- jQuery Knob -->
+   <script src="{{ url('vendors/jquery-knob/dist/jquery.knob.min.js') }}"></script>
+   <!-- Cropper -->
+   <script src="{{ url('vendors/cropper/dist/cropper.min.js') }}"></script>
+
+
     <!-- Custom Theme Scripts -->
     <script src="{{ url('build/js/custom.min.js') }}"></script>
+
+    <!-- Initialize datetimepicker -->
+<script>
+    $('#myDatepicker').datetimepicker();
+
+    $('#myDatepicker2').datetimepicker({
+        format: 'DD.MM.YYYY'
+    });
+
+    $('#myDatepicker3').datetimepicker({
+        format: 'hh:mm A'
+    });
+
+    $('#myDatepicker4').datetimepicker({
+        ignoreReadonly: true,
+        allowInputToggle: true
+    });
+
+    $('#datetimepicker6').datetimepicker();
+
+    $('#datetimepicker7').datetimepicker({
+        useCurrent: false
+    });
+
+    $("#datetimepicker6").on("dp.change", function(e) {
+        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+    });
+
+    $("#datetimepicker7").on("dp.change", function(e) {
+        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+    });
+</script>
 
   </body>
 </html>

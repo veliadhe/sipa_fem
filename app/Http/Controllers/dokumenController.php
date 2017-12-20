@@ -15,14 +15,15 @@ class dokumenController extends Controller
     public function store(){
       $this->validate(request(),[
         'nama_dokumen' => 'required|string',
-        'dokumen' => 'required',
+        'dokumen' => 'required|mimes:doc,docx',
       ]);
+
     dokumen::create([
       'nama_dokumen' => request('nama_dokumen'),
       'dokumen' => request('dokumen')-> store('dokumen'),
     ]);
 
-    return redirect()->route('dokumen.create')->withInfo('surat telah dikirim');
+    return redirect('/dokumen/lihatDokumen');
   }
 
   public function downfunc(){

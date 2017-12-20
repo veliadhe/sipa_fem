@@ -17,17 +17,24 @@
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
+                          <th>No </th>
                           <th>Tanggal Masuk</th>
-                          <th>Tanggal Jadi</th>
                           <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <p hidden> {{ $no=1}}</p>
                         @foreach ($surat_rekomendasi_beasiswas as $surat_rekomendasi_beasiswa)
                         <tr>
-                          <td>{{ $surat_rekomendasi_beasiswa -> created_at -> diffForHumans()}}</td>
-                          <td>{{ $surat_rekomendasi_beasiswa -> tanggal_jadi}}</td>
-                          <td>Edinburgh</td>
+                          <td>{{ $no++}}</td>
+                          <td>{{ $surat_rekomendasi_beasiswa -> created_at}}</td>
+                          <td>
+                            @if (($surat_rekomendasi_beasiswa->status) === 0 )
+                            surat masih di proses
+                            @else
+                            surat Selesai
+                            @endif
+                          </td>
                         </tr>
                       @endforeach
                       </tbody>

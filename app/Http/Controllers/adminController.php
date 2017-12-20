@@ -19,6 +19,7 @@ class adminController extends Controller
     public function update(){
       return 'ini halaman update admin';
     }
+    
     public function cobalagi(){
       return view('cobalagi');
     }

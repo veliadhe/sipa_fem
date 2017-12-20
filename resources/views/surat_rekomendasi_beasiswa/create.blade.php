@@ -4,9 +4,22 @@
 <!-- page content -->
         <div class="col-md-12 col-sm-12 col-xs-12" role="main">
           <div class="">
+              <div class="title_left">
+                <h3> Silahkan Download Contoh Berkas yang harus Diunggah : </h3>
+                  <div class="x_panel">
+                      @foreach($result as $data)
+                      <a class="btn btn-success" href="{{ asset('storage/'.$data -> dokumen) }}" download="{{ $data->dokumen}}">Contoh formulir beasiswa yang pernah diambil</a>
+                      @endforeach
+                      @foreach($result2 as $data)
+                      <a class="btn btn-success" href="{{ asset('storage/'.$data -> dokumen) }}" download="{{ $data->dokumen}}">Contoh surat pernyataan sedang tidak menerima beasiswa</a>
+                      @endforeach
+                    </div>
+                </div>
+
+
             <div class="page-title">
               <div class="title_left">
-                <h3>Form Surat Rekomendasi Beasiswa</h3>
+                <h3>Silahkan isi Form Surat Rekomendasi Beasiswa :</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -26,7 +39,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="semester">Semester <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" value="{{ old('semester') }}" name="semester" placeholder="Semester saat ini" required="required" type="text">
+                          <input id="semester" class="form-control col-md-7 col-xs-12" value="{{ old('semester') }}" name="semester" placeholder="Semester saat ini" required="required" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -54,7 +67,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fcktm">Fotokopi SPP <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="file" id="fcktm" name="fcspp" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="file" id="fcspp" name="fcspp" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -92,6 +105,11 @@
             </div>
           </div>
         </div>
+
+
+
+
+
         <!-- /page content -->
 
 @endsection
